@@ -4,11 +4,9 @@ const data = []
 async function getData() {
     const request = await fetch('./data.json')
     response = await request.json()
-    console.log(response[0]['timeframes']['monthly'])
 }
 async function render() {
     await getData()
-    // document.querySelector('p').textContent += response[2]['title']
 }
 render()
 
