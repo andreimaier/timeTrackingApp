@@ -10,9 +10,9 @@ async function render() {
 }
 render()
 
-const day = document.querySelector('.card:first-child .front div:nth-of-type(1) label')
-const week = document.querySelector('.card:first-child .front div:nth-child(2) label')
-const month = document.querySelector('.card:first-child .front div:last-of-type label')
+const day = document.querySelector('.card:first-child .timeframe div:nth-of-type(1) label')
+const week = document.querySelector('.card:first-child .timeframe div:nth-child(2) label')
+const month = document.querySelector('.card:first-child .timeframe div:last-of-type label')
 
 const current = document.querySelectorAll('.time')
 const last = document.querySelectorAll('.last')

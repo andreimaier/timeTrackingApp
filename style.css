@@ -21,48 +21,35 @@
 }
 
 body {
+  display: grid;
+  place-content: center;
+  min-height: 97dvh;
   background-color: var(--VeryDarkBlue);
   font-family: var(--fontFam);
 }
-main {
+.wrapper {
+  padding-block: 4.5rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
-}
-.wrapper {
-  margin-top: 50px;
+  gap: 1.5rem;
 }
 
 .card {
-  margin-top: -20px;
-  max-width: 340px;
+  border-radius: var(--border-radius);
+  max-width: 20rem;
   color: white;
-}
-
-.back {
-  display: flex;
-  justify-content: right;
-  padding-inline: 1rem;
-  border-radius: var(--border-radius) var(--border-radius) 0 0;
-  height: 80px;
-  overflow: hidden;
-}
-.back img {
-  max-width: 70%;
-  aspect-ratio: 1;
-  transform: translateY(-10px);
-  overflow: hidden;
+  padding-top: 2.3rem;
 }
 
 .front {
   background-color: var(--DarkBlue);
-  transform: translateY(-40px);
   border-radius: var(--border-radius);
-  padding: 1.5rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
+  padding: 1.6rem;
 }
+
 .front:hover {
   background-color: var(--DesaturatedBlue);
   cursor: pointer;
@@ -80,53 +67,55 @@ main {
   font-weight: 300;
   color: var(--PaleBlue);
 }
-.front img {
-  padding-block: 10px;
-}
-.front img,
+.front svg,
 .front :nth-child(4) {
   justify-self: right;
 }
-.front img:hover {
-  cursor: pointer;
+.front:has(svg:hover) {
+  background-color: var(--DarkBlue);
+}
+.front svg path:hover {
+  fill: white;
 }
 
-.card:nth-child(2) .back {
-  background-color: var(--work);
+.card:nth-child(2) {
+  background: var(--work) url(./images/icon-work.svg) top -1rem right 1rem no-repeat;
 }
-.card:nth-child(3) .back {
-  background-color: var(--play);
+.card:nth-child(3) {
+  background: var(--play) url(./images/icon-play.svg) top -1rem right 1rem no-repeat;
 }
-.card:nth-child(4) .back {
-  background-color: var(--study);
+.card:nth-child(4) {
+  background: var(--study) url(./images/icon-study.svg) top -1rem right 1rem no-repeat;
 }
-.card:nth-child(5) .back {
-  background-color: var(--exercise);
+.card:nth-child(5) {
+  background: var(--exercise) url(./images/icon-exercise.svg) top -0.2rem right 1rem
+    no-repeat;
 }
-.card:nth-child(6) .back {
-  background-color: var(--social);
+.card:nth-child(6) {
+  background: var(--social) url(./images/icon-social.svg) top -1rem right 1rem no-repeat;
 }
-.card:nth-child(7) .back {
-  background-color: var(--selfCare);
+.card:nth-child(7) {
+  background: var(--selfCare) url(./images/icon-self-care.svg) top -1rem right 1rem
+    no-repeat;
 }
 
 /* Rules for the first div */
 .card:first-of-type {
+  background-color: var(--DarkBlue);
+  padding: 0;
   display: flex;
-  flex-direction: column-reverse;
-  margin-bottom: 40px;
+  flex-direction: column;
 }
-.card:first-child .back {
+.card:first-child .profile {
   background-color: var(--hero);
-  height: 130px;
+  padding-block: 1.5rem;
   display: grid;
   row-gap: 5px;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, 1fr);
   border-radius: var(--border-radius);
-  transform: translateY(20px);
 }
-#hero {
+.card:first-child img {
   border: 4px solid white;
   border-radius: 50%;
   max-width: 60%;
@@ -135,77 +124,58 @@ main {
   grid-row: 1/3;
   align-self: center;
   justify-self: center;
-  transform: translateY(0);
 }
-.card:first-child .back p:first-of-type {
+.card:first-child .profile p:first-of-type {
   grid-column: 2/4;
   grid-row: 1/2;
   align-self: end;
   margin: 0;
-  font-weight: 300;
-  color: var(--PaleBlue);
 }
-.card:first-child .back p:last-of-type {
+.card:first-child .profile p:last-of-type {
   grid-column: 2/4;
   grid-row: 2/3;
   justify-self: left;
-  align-self: start;
   margin: 0;
-  font-size: 26px;
+  font-size: 1.6rem;
   font-weight: 300;
 }
-.card:first-child .front {
+.card:first-child .timeframe {
+  padding-block: 2rem;
   display: flex;
   justify-content: space-around;
-  align-items: end;
-  background-color: var(--DarkBlue);
-  height: 40px;
-  font-size: var(--fontSize);
-  font-weight: 300;
-  border-radius: 0 0 var(--border-radius) var(--border-radius);
-  transform: translateY(0);
 }
-.card:first-child .front a {
-  color: var(--PaleBlue);
-  text-decoration: none;
-  cursor: pointer;
-}
-.card:first-child .front label:hover,
-.card:first-child .front a:active {
+.card:first-child .timeframe label:hover {
   color: inherit;
 }
 
-.card:first-child .front input {
+.card:first-child .timeframe input {
   appearance: none;
 }
-.card:first-child .front input:checked + label {
+.card:first-child .timeframe input:checked + label {
   color: inherit;
 }
-.card:first-child .front label {
+.card:first-child .timeframe label {
   cursor: pointer;
   color: var(--PaleBlue);
 }
 /* Rules for the first div END*/
 
-@media screen and (width>500px) {
-  body {
-    height: 95vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+@media screen and (width>65rem) {
   .wrapper {
+    max-width: fit-content;
+    padding: 0;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(2, 1fr);
-    column-gap: 2rem;
-    margin: 0;
+    gap: 1rem;
   }
   .card {
-    max-width: 16rem;
+    max-width: 15rem;
   }
+
   .front {
     padding: 2rem;
+    height: auto;
   }
   .front .last {
     grid-row: 3/4;
@@ -228,34 +198,28 @@ main {
     grid-row: 1/3;
     border-radius: var(--border-radius);
   }
-  .card:first-child .back {
-    grid-template-rows: repeat(5, 1fr);
-    justify-items: start;
-    transform: translateY(0);
-    height: 100%;
-  }
-  #hero {
-    width: 5rem;
-    grid-column: 1/4;
-    grid-row: 1/3;
-    justify-self: start;
-    align-self: end;
-  }
-  .card:first-child .back p:first-of-type {
-    grid-column: 1/4;
-    grid-row: 3/4;
-  }
-  .card:first-child .back p:last-of-type {
-    font-size: 2.5rem;
-    grid-column: 1/4;
-    grid-row: 4/6;
-  }
-
-  .card:first-child .front {
+  .card:first-child .profile {
+    padding: 2rem 2rem 1rem 2rem;
+    height: 65%;
+    display: flex;
     flex-direction: column;
-    align-items: start;
-    height: 40%;
-    padding: 1rem;
+  }
+  .card:first-child img {
+    align-self: start;
+    width: 5rem;
+    margin-block-end: 2rem;
+  }
+  .card:first-child .profile p:first-of-type {
+    align-self: normal;
+  }
+  .card:first-child .profile p:last-of-type {
+    font-size: 2.5rem;
+  }
+  .card:first-child .timeframe {
+    height: 20%;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-inline-start: 1rem;
   }
   /* Rules for the first div END*/
 }
