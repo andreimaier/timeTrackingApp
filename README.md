@@ -25,7 +25,7 @@ I cloned a landing page for TickyBot, using a solution available online as guida
 ### Links
 
 - [Github Repo URL](https://github.com/andreimaier/Chingu-SoloProject)
-- [Live Site URL](https://andreimaier.github.io/Chingu-SoloProject/#features)
+- [Live Site URL](https://andreimaier.github.io/Chingu-SoloProject)
 
 ## Built with
 
